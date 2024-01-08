@@ -1,0 +1,51 @@
+{% extends 'forum/basesign.html' %}
+{% load static %}
+{% block body %}
+<style> body{
+         background-position: center;
+         font-family: sans-serif;
+         background: radial-gradient(#fff, );}
+        .user_card {
+        width:400px;
+        margin-color:;
+        margin-top: auto;
+        margin-bottom:auto;
+        background:# ;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction:column;
+        padding: 70px;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       .webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       .moz-box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       border-raduis: 4px;
+       transform: translate(10%,37%);
+       }</style>
+
+
+	<form action="/login/" method="POST" style="height: 420px; padding: 70px 30px; margin-top: 30px;">
+		{% csrf_token %}
+		<img src="{% static 'images/avatar.png' %}" class="avatar">
+		<center>
+		<h1 style="font-size: 2em; font-weight: bold; margin-bottom: 15px;">Login</h1></center>
+		{% if error %}
+			<div class="alert alert-danger" role="alert">{{error}}</div>
+		{% endif %}
+		<div class="form-group" style=" font-size: small;">
+			<label>Username</label><br>
+			<input type="text" class="form-control" name="name" placeholder="Username">
+		</div>
+		<div class="form-group" style=" font-size: small;">
+			<label>Password</label><br>
+			<input type="password" class="form-control" name="password" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<center>
+			<button type="submit" class="btn" >Log In</button>
+
+			</center>
+		</div>
+	</form>
+	<br>
+{% endblock %}

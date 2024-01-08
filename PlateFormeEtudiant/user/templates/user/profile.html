@@ -1,0 +1,696 @@
+
+
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+    <style>
+
+
+ body{
+         background: radial-gradient(#E2EBE9,#E2EBE9 );}
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  margin: auto;
+
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: ;
+  font-size: 12px;
+  padding: 8px 12px;
+
+  top: 0;
+}
+
+
+.active {
+  background-color:;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+section {
+  width: 100%;
+  display: inline-block;
+  background:;
+  height: 100vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+   body {
+  color: #435757;
+  background: radial-gradient(, #dac4cd);
+  font: 1.4em/1 'Noto Sans', sans-serif;
+}
+ body,
+        html{
+        margin:0 ;
+        padding:0;
+        height:100%;
+        background-image: ;
+        background-color:!important;
+        }
+@import url('https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  display: ;
+  position: ;
+  left: 6%;
+  max-width:100%;
+  background-color: #1D9BAC;
+  padding: 2 250px;
+  border-radius: 250px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, .9);
+}
+
+.nav-item {
+  color: #000000;
+  padding: 1px;
+  text-decoration: ;
+  transition: .3s;
+  margin: 0 20px;
+  z-index: 2;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 530;
+  position: relative;
+  left:0%;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0%;
+    width: 100%;
+    height: 5px;
+
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: .3s;
+  }
+}
+
+.nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
+}
+
+
+.nav-item:not(.is-active):hover { color:  #ffcc66; }
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: .4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 330px) {
+  .nav { overflow: auto; }
+}
+
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:140px;
+    hight:100px;
+}
+
+.container {
+  position: absolute;
+  hight:100px;
+  top:35%;
+  left:30%;
+  transform: translate(-1%, 5%);
+}
+
+.card .card-heading {
+    padding: 40 20px;
+
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width:200px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.modifier {
+  position: absolute;
+  top:35%;
+  left:30%;
+  transform: translate(
+ 190%, 320%);
+}
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width:400%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.hovercard .cardheader {
+    background: url("https://www.digischool.fr/images/article/decouvrez-le-sujet-de-litterature-du-bac-l-2015-tombe-a-washington-lg-28731.jpg");
+    background-size: cover;
+    height: 200px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+body{margin-top:20px;}
+
+.profile {
+  width: 100%;
+  position: relative;
+  background: #FFF;
+  border: 1px solid #D5D5D5;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+   transform: translate(-5%, 25%);
+}
+
+.profile .image {
+  display: block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  border: 5px solid #FFF;
+
+
+
+
+}
+
+.profile .user {
+  position: relative;
+  padding: 0px 5px 5px;
+}
+
+.profile .user .avatar {
+  position: absolute;
+  left: 20px;
+  top: -85px;
+  z-index: 2;
+}
+
+.profile .user h2 {
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+  float: left;
+  margin: 4px 0px 0px 135px;
+  font-weight: bold;
+}
+
+.profile .user .actions {
+  float: right;
+}
+
+.profile .user .actions .btn {
+  margin-bottom: 0px;
+}
+
+.profile .info {
+  float: left;
+  margin-left: 20px;
+}
+
+.img-profile{
+    height:100px;
+    width:100px;
+}
+
+.img-cover{
+    width:800px;
+    height:300px;
+}
+
+@media (max-width: 768px) {
+  .btn-responsive {
+    padding:2px 4px;
+    font-size:80%;
+    line-height: 1;
+    border-radius:3px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    padding:4px 9px;
+    font-size:90%;
+    line-height: 1.2;
+  }
+}
+
+    </style>
+<!DOCTYPE html>
+
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title> Espace Etudiant | {{title}}</title>
+    {% else %}
+    <title>Espace Etudiant</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+
+ </head>
+
+
+<header>
+
+
+  <img src="{% static 'blog/images/s.png' %}" width="100%" HEIGHT="350px" >
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+
+    <a href="{% url 'annonces' %}" class="nav-item " active-color="orange"><i class="fas fa-home"></i>Acceuil</a>
+   <a href="{% url 'presentation' %}" class="nav-item" active-color="green"><i class="fas fa-university"></i>Présentation</a>
+    <a href="/discussion/" class="nav-item" active-color="red"><i class="fas fa-comments"></i>Forum</a>
+     <a href="{% url 'candidat' %}" class="nav-item" active-color="red"><i class="fas fa-user-graduate"></i>ESTC challenge</a>
+                {% if user.is_authenticated %}
+
+                    <a href="{% url 'profile' %}" class="nav-item"active-color="blue"><i class="fas fa-users"></i>Profile</a>
+
+
+                <a href="{% url 'profile_update' %}" class="nav-item" active-color="blue"><i class="fas fa-user-circle"></i>modifier profile</a>
+
+                    <a href="/logout/" class="nav-item" active-color="blue"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+
+
+                {% else %}
+                 <a href="{% url 'lauréats' %}" class="nav-item" active-color="yelow"><i class="fas fa-user-graduate"></i>Lauréats</a> &nbsp &nbsp
+                <a href="{% url 'evenements' %}" class="nav-item" active-color="red"><i class="fas fa-lock"></i>Evenements</a>
+                <a href="{% url 'activites' %}" class="nav-item" active-color="red"><i class="fas fa-lock"></i>Activites</a>
+
+                <a href="/login/" class="nav-item" active-color="red"><i class="fas fa-lock"></i>Connexion</a>
+
+ <div class="dropdown">
+    <a href="javascript:void(0)" class="nav-item" active-color="red"><i class="fas fa-users-cog"></i>Administration</a>
+    <div class="dropdown-content">
+      <a href="{% url 'connexion' %}">Administrateur </a>
+      <a href="{% url 'connexion' %}">Sous administrateur</a>
+
+    </div></div>
+
+    <style>
+div.dropdown {
+  display: inline-block;
+  left:1%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#1D9BAC;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color:  #ffcc66;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+                {% endif %}
+
+</nav>
+
+
+    </header>
+
+<body>
+    {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="container">
+<div class="col-md-8">
+    <div class="profile clearfix">
+        <div class="image">
+            <img src="{% static 'blog/images/qu.png' %}" class="img-cover">
+        </div>
+        <div class="user clearfix">
+            <div class="avatar">
+                <img src="{{user.profile.image.url}}" class="img-thumbnail img-profile">
+            </div>
+            <h2>{{user.username}}</h2>
+           <div class="actions">
+                <div class="btn-group">
+                <!--    <button class="btn btn-default btn-sm tip btn-responsive" title="" data-original-title="Add to friends"><span class="glyphicon glyphicon-plus glyphicon glyphicon-white"></span>sujets posés</button>-->
+                   <!-- <button class="btn btn-default btn-sm tip btn-responsive" title="" data-original-title="Recommend"><span class="glyphicon glyphicon-share-alt glyphicon glyphicon-white"></span>Plus</button>-->
+                </div>
+            </div>
+        </div>
+        <div class="info">
+                    <div class="title">
+                        <p class="font-weight-bold">Nom & Prénom: <span class="font-weight-normal">{{user.first_name}} {{user.last_name}}</span></p>
+                    </div>
+
+                    <p class="font-weight-bold">Email: <span class="font-weight-normal">{{user.email}}</span></p>
+             <p class="font-weight-bold">Cin: <span class="font-weight-normal">{{user.etudiant1.CIN}}</span></p>
+             <p class="font-weight-bold">Filiére: <span class="font-weight-normal">{{user.etudiant1.Filiere}}</span></p>
+             <p class="font-weight-bold">Code apogee: <span class="font-weight-normal">{{user.etudiant1.Code_apogee}}</span></p>
+             <p class="font-weight-bold">Cne: <span class="font-weight-normal">{{user.etudiant1.cne}}</span></p>
+
+                </div>
+
+                     </div>
+
+
+    </div>
+</div>
+</div>
+<!--notre profile-->
+<!--div class="border p-4 mb-5">
+    <div class="row">
+
+        <div class="col-md-3 text-center">
+            <img class="img-fluid rounded-circle border m-2" style="width: 120px; height:120px;"
+                src="{{user.profile.image.url}}" alt="{{user.username}}">
+            <div class="mt-3">
+                <a class="btn btn-secondary bg-secondary" href="{% url 'profile_update' %}"><i
+                        class="fas fa-pen fa-xs"></i>modifier</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h2 class="mb-4">{{user.username}}</h2>
+            <p class="font-weight-bold">Prénom: <span class="font-weight-normal">{{user.first_name}}
+                    {{user.last_name}}</span></p>
+            <p class="font-weight-bold">Email: <span class="font-weight-normal">{{user.email}}</span></p>
+        </div>
+    </div>
+</div>-->
+<!--<div class="row mb-2">
+    <div class="col-md">
+        <h3 class="border-bottom justify-content-center pb-2 mb-2">Number of posts</h3>
+        <h4 class="bg-secondary text-center p-4 text-light">
+            {{posts.count}}
+        </h4>
+
+        <h3 class="border-bottom   mb-2 pb-2 mt-2">My posts</h3>
+        {% for post in post_list %}
+        <ul class="pr-1">
+            <a class="text-dark" href="{% url 'detail' post.id %}">{{post.title}}</a>
+        </ul>
+        {% empty %}
+        <h4 class="text-center  mb-5">No posts</h4>
+        {% endfor %}
+
+        {% include 'blog/pagination.html' with page=post_list %}
+    </div>
+</div>-->
+
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+{% endblock content %}

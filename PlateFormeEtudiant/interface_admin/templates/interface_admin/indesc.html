@@ -1,0 +1,167 @@
+{% extends "layouts/base.html" %}
+
+{% block main_page_title %}
+    Dashboard
+{% endblock main_page_title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+
+{% block main_page_content %}
+<br><br><br><br><br><br>
+                        <!--[social-media section] start-->
+
+   <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-file-alt f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'annonce_list' %}">
+                                            <h3>{{ annonces }}</h3>
+                                            <span class="name">Total des annonces</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-comments f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'solutions_list' %}">
+                                            <h3>{{ Solutions }}</h3>
+                                            <span class="name">Total des réponses sur les sujets</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-comments f-50"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'comment_list' %}">
+                                            <h3>{{ Comment }}</h3>
+                                            <span class="name">Total des commentaires</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fa fa-question f-60" aria-hidden="true"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'question_list' %}">
+                                            <h3>{{ Question }}</h3>
+                                            <span class="name">Total des sujets de descussion</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-comments f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'blogpost_list' %}">
+                                            <h3>{{ BlogPost }}</h3>
+                                            <span class="name">Total des postes</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+  <!--     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-comments f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'blogcomment_list' %}">
+                                            <h3>{{ BlogComment }}</h3>
+                                            <span class="name">Total des blogs</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>-->
+
+           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-puzzle-piece f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'gereractivites' %}">
+                                            <h3>{{ activites }}</h3>
+                                            <span class="name">Total des activites</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'sousadmins_list' %}">
+                                            <h3>{{ Sousadmins }}</h3>
+                                            <span class="name">Total des sous admins</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+
+
+
+</div>
+
+{% endblock main_page_content %}
+
+    <!-- /.row -->
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

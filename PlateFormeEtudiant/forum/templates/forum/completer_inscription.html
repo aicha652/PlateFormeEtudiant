@@ -1,0 +1,47 @@
+{% extends 'forum/basesign.html' %}
+{% load static %}
+{% block body %}
+
+	<form action="/signup/" method="POST" style="height: 530px; padding: 40px 30px; margin-top: 30px; margin">
+		{% csrf_token %}
+		<img src="{% static 'images/avatar.png' %}" class="avatar">
+		<center>
+		<h3 style="font-weight: bold; margin-bottom: 5px;">Signup</h3>
+		</center>
+		{% if error %}
+			<div class="alert alert-danger" role="alert">{{error}}</div>
+		{% endif %}
+		<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;">filiere</label><br>
+			<input type="text" class="form-control" name="name" placeholder="Username">
+		</div>
+		<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;"> email</label><br>
+			<input type="text" class="form-control" name="first_name" placeholder="First Name">
+		</div>
+		<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;">annee_d_diplome</label><br>
+			<input type="text" class="form-control" name="last_name" placeholder="First Name">
+		</div>
+		
+
+		<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;">telefone</label><br>
+			<input type="password" class="form-control" name="password1" placeholder="Password">
+		</div>
+		<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;"> cin</label><br>
+			<input type="password" class="form-control" name="password2" placeholder="Password">
+		</div>
+        	<div class="form-group" style=" font-size: small;">
+			<label style="margin-bottom: 0;">pays</label><br>
+			<input type="password" class="form-control" name="password2" placeholder="Password">
+		</div>
+
+		<div class="form-group">
+			<center>
+				<button type="submit" class="btn" style="margin-top: 0;">Sign Up</button>
+			</center>
+		</div>
+	</form>
+{% endblock %}

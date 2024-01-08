@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+
+
+
+{% block main_page_title %}
+{{ main_page_title }}
+{% endblock main_page_title %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+
+
+
+{% block panel %}
+{% include 'includes/form_panel.html' %}
+{% endblock panel %}
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

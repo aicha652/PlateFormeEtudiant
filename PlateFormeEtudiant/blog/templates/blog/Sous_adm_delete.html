@@ -1,0 +1,25 @@
+{% extends "layouts/basee.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel">
+        <br><br><br><br><br><br>
+        <div class="panel-body">
+            <form method="post" class="form">{% csrf_token %}
+                <h3>Vous voulez supprimer cette activité ?</h3>
+                <input type="submit" value="Supprimer" class="btn btn-danger">
+                <a class="btn btn-secondary" href="{% url 'table_inscrip_activi'  %}">Annuler</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

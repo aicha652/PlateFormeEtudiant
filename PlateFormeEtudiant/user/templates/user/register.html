@@ -1,0 +1,230 @@
+
+
+<html>
+<head>
+{% load staticfiles %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+function myFunction() {
+    var pass1 = document.getElementById("pass").value;
+    var pass2 = document.getElementById("cpass").value;
+    var ok = true;
+    if (pass1 != pass2) {
+        //alert("Passwords Do not match");
+        document.getElementById("pass").style.borderColor = "#E34234";
+        document.getElementById("cpass").style.borderColor = "#E34234";
+        alert("Please Check Passwords!!!");
+        ok = false;
+    }
+    else {
+        alert("User Added!");
+    }
+    return ok;
+}
+
+
+function check_login(element) {
+    $("#login_ok").hide();
+    $("#login_not").hide();
+    login = $(element).val();
+    if (login == "") {
+        return;
+    }
+    $.ajax({
+        url : $(element).attr("data-url"),
+        data : {
+            "csrfmiddlewaretoken" : $(element).siblings("input[name='csrfmiddlewaretoken']" ).val(),
+            "login":login
+        },
+        method: "POST",
+        dataType : "json",
+        success : function (returned_data) {            
+            if (returned_data.is_success) {
+                $("#login_ok").show();
+            } else {
+                $("#login_not").show();
+            }
+        }
+    });
+}
+
+</script>
+
+  <style>
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=date],input[type=password],select, .container2{
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+label{
+  font-size: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.container {
+    padding: 16px;
+}
+</style>
+</head>
+
+<!--
+
+
+{% if name %}
+<script>
+  window.location='{% url "login" %}'
+</script>
+{% endif %}
+
+
+
+-->
+
+
+<body>
+
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<form action="{% url 'register_redirect' %}" method='post' onsubmit="return myFunction()">
+  {% csrf_token %}
+<div class="container">
+<h2>User Registration</h2>
+Username : <div> <input type="text" class="form-control input-sm" name="login" id="login" placeholder="Login or Username" required="True"  data-url="/login/"/>
+Nom : <input type='text' name="name" required>
+Prénom: <input type='text' name="name" required>
+
+   {% csrf_token %}
+
+<div class="col-md-6 col-sm-6" style="color:red;display:none;margin-top: 4px;"  id="login_not">
+    <span class="glyphicon glyphicon-remove"></span> Username deja existe.
+</div><br>
+<div class="col-md-6 col-sm-6" style="color: green;display: none;margin-top: 4px;" id="login_ok">
+    <span class="glyphicon glyphicon-ok"></span> Username valable.
+</div><br>
+</div><br>
+Email:<input type="text" name="email"  required>
+Cin: <input type='text' name="name" required>
+Filière:<select name="Filière">
+  <option value="-1" selected>selectionner..</option>
+  <option value="DUT-FC2">DUT-FC2</option>
+  <option value="DUT-GE2-EEI">DUT-GE2-EEI</option>
+  <option value="DUT-GE2-EII">DUT-GE2-EII</option>
+  <option value="DUT-GE2-RLI">DUT-GE2-RLI</option>
+    <option value="DUT-GEA2">DUT-GEA2</option>
+   <option value="DUT-GI2">DUT-GI2</option>
+   <option value="DUT-GM2">DUT-GM2</option>
+   <option value="DUT-TC2">DUT-TC2</option>
+   <option value="DUT-GP2">DUT-GP2</option>
+  <option value="LP-GLAASRI">LP-GLAASRI</option>
+  <option value="LP-CFA">LP-CFA</option>
+   <option value="LP-GIL">LP-GIL</option>
+   <option value="LP-GLAASRI">LP-GLAASRI</option>
+  <option value="LP-LPMECA">LP-LPMECA</option>
+   <option value="LP-MECA">LP-MECA</option>
+  <option value="LP-MV">LP-MV</option>
+
+  </select>
+
+annee_d_diplome:<select name="annee_d_diplome">
+  <option value="-1" selected>selectionner..</option>
+  <option value="1986">1986</option>
+  <option value="1987">1987</option>
+  <option value="1988">1988</option>
+  <option value="1989">1989</option>
+ <option value="1990">1990</option>
+  <option value="1991">1991</option>
+  <option value="1992">1992</option>
+  <option value="1993">1993</option>
+ <option value="1994">1994</option>
+  <option value="1995">1995</option>
+  <option value="1996">1996</option>
+  <option value="1997">1997</option>
+ <option value="1998">1998</option>
+  <option value="1999">1999</option>
+  <option value="2000">2000</option>
+  <option value="2001">2001</option>
+ <option value="2002">2002</option>
+  <option value="2003">2003</option>
+  <option value="2004">2004</option>
+  <option value="2005">2005</option>
+  <option value="2006">2006</option>
+  <option value="2007">2007</option>
+  <option value="2008">2008</option>
+  <option value="2009">2009</option>
+  <option value="2010">2010</option>
+  <option value="2011">2011</option>
+  <option value="2012">2012</option>
+  <option value="2013">2013</option>
+ <option value="2014">2014</option>
+  <option value="2015">2015</option>
+  <option value="2016">2016</option>
+  <option value="2017">2017</option>
+ <option value="2018">2018</option>
+  <option value="2019">2019</option>
+  <option value="2020">2020</option>
+  <option value="2021">2021</option>
+ <option value="2022">2022</option>
+  <option value="2023">2023</option>
+  <option value="2024">2024</option>
+  <option value="2025">2025</option>
+  <option value="2026">2026</option>
+  <option value="2027">2027</option>
+  <option value="2028">2028</option>
+  <option value="2029">2029</option>
+ <option value="2030">2030</option>
+  <option value="2031">2031</option>
+  <option value="2032">2032</option>
+  <option value="2034">2034</option>
+ <option value="2035">2035</option>
+  <option value="2036">2036</option>
+  <option value="2037">2037</option>
+  <option value="2038">2038</option>
+  </select>
+
+telefone: <input type="text" name="contact" required>
+Pays: <input type='text' name="name" required>
+Etablissement: <input type='text' name="name" required>
+Poste: <input type='text' name="name" required>
+Societe:<input type='text' name="name" required>
+
+
+
+
+
+
+
+
+</div>
+  </form>
+  </body>
+  </html>
+
+

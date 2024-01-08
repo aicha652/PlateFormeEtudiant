@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+         <br><br><br><br><br><br><div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <table class="table table-hover">
+                                        <thead>
+                                          <tr BGCOLOR="#A6D2FF" WIDTH="290px" HEIGHT="0px" >
+                     <th><B>Id</B></th>
+
+                    <th><B>Réponse</B></th>
+
+                    <th><B>la date de réponse</B></th>
+
+                     <th><B>Question</B></th>
+
+                     <th><B>utilisateur</B></th>
+
+                     <th><B>Nombre de votes</B></th>
+
+                     <th><B>Actions</B></th>
+                </tr>
+            </thead>
+            <tbody>
+{% for object in object_list %}
+<div class="col" id="{{comment.id}}">
+                <tr    BGCOLOR=" #e9ecef">
+                    <td class="">{{ object.id }}</td>
+                    <td >{{ object.answer}} </td>
+                    <td>{{ object.datetime}} </td>
+                       <td>{{object.question  }}</td>
+                    <td>{{object.author }}</td>
+                     <td>{{object.upvotes }}</td>
+                    <td><a href="{% url 'solutions_delete' object.id %}" class="btn btn-danger"><i class="fa fa-trash" title="Delete Record"></i>
+        </a></td>
+
+                </tr>
+
+                {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+<div class="f"></div>
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

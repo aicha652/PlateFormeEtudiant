@@ -1,0 +1,94 @@
+
+    <nav class="pcoded-navbar">
+        <div class="navbar-wrapper">
+            <div class="navbar-brand header-logo">
+                <a target="_blank" href="#" class="b-brand">
+                    <div class="b-bg">
+                        <i class="feather icon-trending-up"></i>
+                    </div>
+                    <span class="b-title">Admin | ESTC</span>
+                </a>
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+            </div>
+            <div class="navbar-content scroll-div">
+                <ul class="nav pcoded-inner-navbar">
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
+                        <a href="{% url 'indesc' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    </li>
+                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa fa-bullhorn" aria-hidden="true"></i></span><span class="pcoded-mtext">Annonces</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'adannonces' %}" class="">Ajouter une annonce</a></li>
+                            <li class=""><a href="{% url 'annonce_list' %}" class="">Gérer les annonces</a></li>
+                        </ul>
+                    </li>
+
+                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fas fa-comments"></i></span><span class="pcoded-mtext">Réponses</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'solutions_list' %}" class="">Gérer les réponses</a></li>
+                        </ul>
+                    </li>
+                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fas fa-comments"></i></span><span class="pcoded-mtext"> commentaires</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'comment_list' %}" class="">Gérer la commentaires</a></li>
+                        </ul>
+                    </li>
+                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa fa-question" aria-hidden="true"></i></span><span class="pcoded-mtext">sujets de descussion</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'question_list' %}" class="">Gérer les sujets de descussion</a></li>
+                        </ul>
+                    </li>
+                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fas fa-comments"></i></span><span class="pcoded-mtext">Postes</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'blogpost_list' %}" class="">Gérer les postes</a></li>
+                        </ul>
+                    </li>
+                 <!--   <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fas fa-comments"></i></span><span class="pcoded-mtext">Blogs commentaires</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'blogcomment_list' %}" class="">Gérer les blogscommentaires</a></li>
+                        </ul>
+                    </li>-->
+                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span><span class="pcoded-mtext">les activités</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'adactivite' %}" class="">Ajouter une activité</a></li>
+                            <li class=""><a href="{% url 'gereractivites' %}" class="">Gérer les activités</a></li>
+                        </ul>
+                    </li>
+                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></span><span class="pcoded-mtext">les événements</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'addeve' %}" class="">Ajouter un événement</a></li>
+                            <li class=""><a href="#" class="">Gérer les événements</a></li>
+                        </ul>
+                    </li>
+                      <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa fa-user-plus" aria-hidden="true"></i></span><span class="pcoded-mtext">les sous admins</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'sousadmins_create' %}" class="">Ajouter un sous admin</a></li>
+                            <li class=""><a href="{% url 'sousadmins_list' %}" class="">Gérer les sous admins</a></li>
+                        </ul>
+                    </li>
+                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Mot du passe</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'change_pswd' %}" class="">Changer le mot de passe</a></li>
+                        </ul>
+                    </li>
+                    <li data-username="Disabled Menu" class="nav-item">
+                        <a href="{% url 'out' %}" class="nav-link">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-power"></i>
+                            </span>
+                            <span class="pcoded-mtext">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

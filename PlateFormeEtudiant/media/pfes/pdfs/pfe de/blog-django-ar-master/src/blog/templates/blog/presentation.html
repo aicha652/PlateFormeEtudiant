@@ -1,0 +1,212 @@
+{% load static %}
+{% load post_tag %}
+<!DOCTYPE html>
+
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title>????? | {{title}}</title>
+    {% else %}
+    <title>?????</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+</head>
+
+<style>
+
+
+
+
+
+
+   *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+         }
+body{
+         background-position: center;
+         font-family: sans-serif;
+         background: radial-gradient(#fff, #dac4cd);}
+.menu-bar{
+         background:#000080;
+         text-align: center;
+         }
+.menu-bar ul{
+         display: inline-flex;
+         list-style: none;
+         color: #fff;
+       }
+
+.menu-bar ul li{
+       width: 170px;
+       margin: 10px;
+       padding: 15px;
+       }
+.menu-bar ul li a{
+       text-decoration: none;
+       color: #fff;
+       }
+.active, .menu-bar ul li:hover{
+       background: #1369ce;
+       border-radius:3px;
+}
+.sub-menu-l{
+       display: none;
+       }
+.menu-bar ul li:hover .sub-menu-l{
+       display: block;
+       position: absolute;
+       background: #000080;
+       margin-top: 15px;
+       margin-left:-15px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul{
+      display:block;
+      margin: 10px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul li{
+      width: 160px;
+      padding: 10px;
+      border-bottom: 1px dotted #fff;
+      background: transparent;
+      border-radius: 0;
+      text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-l ul li:last-child{
+border-bottom:none;}
+
+
+
+
+
+
+.footer{
+            background: #303036;
+            color: #d3d3d3;
+            height: 350px;
+            position: relative;
+            }
+     .footer .footer-bottom{
+           background: #343a40;
+           color: #686868;
+           height: 50px;
+           width: 100%;
+           text-align: center;
+           position: absolute;
+           bottom: 0px;
+           left: 0px;
+           padding-top 20px;
+     }
+</style>
+
+
+
+
+</head>
+<body>
+
+
+    <header>
+        <!--Start Navbar-->
+
+       <div class="menu-bar">
+<ul>
+    <li ><a href="{% url 'index' %}"><i class="fas fa-home"></i>Acceuil</a></li>
+    <li  class="active"><a href="{% url 'presentation' %}"><i class="fas fa-university"></i>Présentation</a>
+    </li>
+
+
+    <li ><i class="fas fa-comments"></i><a href="{% url 'home' %}">Publications</a></li>
+
+
+
+</ul>
+
+                {% if user.is_authenticated %}
+                <ul >
+                    <li ><i class="fas fa-users"></i><a  href="{% url 'profile' %}">Profil</a></li>
+                    <li ><i class="fas fa-comments"></i><a  href="{% url 'new_post' %}">Forum</a></li>
+                    <li><i class="fas fa-user-circle"></i><a href="{% url 'profile_update' %}">Mon compte</a></li>
+                    <li ><i class="fas fa-sign-out-alt"></i><a href="{% url 'logout' %}">Déconnexion</a></li>
+                </ul>
+                {% else %}
+                <ul><li ><a href="#"><i class="fas fa-user-graduate"></i>Lauréats</a></li>
+                    <li ><a href="{% url 'login' %}"><i class="fas fa-lock"></i>Connexion</a></li>
+                    <li ><a  href="{% url 'register' %}"><i class="fas fa-user"></i>S'inscrire</a></li>
+                </ul>
+                {% endif %}
+
+
+            </div>
+
+
+        <!--End Navbar-->
+    </header>
+<br />
+
+
+
+<div class="attachmentsList" id="attachmentsList_com_content_default_312"></div>
+
+</div>
+ <p style="text-align: justify;"><img src="{% static 'blog/images/New Project (3).png' %}" width="333" height="152" /></p>
+
+<p style="text-align: justify;margin-right: auto; margin-left: auto; display: block;margin-left: 90px;">L'Ecole Supérieure de Technologie de Casablanca ESTC est un établissement public d'enseignement supérieur
+    à finalité <br />professionnalisant. Elle a été créée en 1986 par le Ministère de l'Enseignement Supérieur, de la Formation des Cadres<br /> et
+    de la Recherche Scientifique. L'ESTC est une composante de l'Université Hassan II de Casablanca. Sa vocation<br /> est de former des
+    Techniciens Supérieurs polyvalents, hautement qualifiés et immédiatement opérationnels après leur<br /> sortie de l'Ecole en tant que
+    collaborateurs d'ingénieurs et de managers. Sont admis à l'ESTC, les bacheliers de l'enseignement<br /> secondaire technique, scientifique
+    et tertiaire. L'admission à l'Ecole se fait par une présélection basée sur des notes obtenues<br /> au baccalauréat. Les candidats doivent
+    être âgés de 22 ans au plus au 31 Décembre de l'année du concours et doivent déposer<br /> leurs dossiers avant le 30 Juin de chaque année.</p>
+    <img style="margin-right: auto; margin-left: auto; display: block;margin-left: 90px;" src="{% static 'blog/images/New Project (1).png' %}" alt="SNC10270" width="862" height="526" />
+    <br />
+    <p style="text-align: justify;margin-right: auto; margin-left: auto; display: block;margin-left: 90px;">La formation appliquée
+        à l'ESTC est largement tournée vers l'industrie, c'est pourquoi ses programmes ont toujours le souci<br />
+    de répondre aux exigences et aux attentes de l'environnement économique et social de l'Ecole et font appel à des méthodes<br />
+    pédagogiques actives et évoluées. Les programmes d'enseignement comportent des Cours, des Travaux Pratiques, des Travaux <br />Dirigés
+    et des Travaux de Réalisation ainsi que des Projets de Fin d'Etudes.<br /><br /></p>
+<p style="text-align: justify;"><img style="display: block; margin-left: auto; margin-right: auto;margin-left: 90px;"
+                                     src="{% static 'blog/images/New Project (2).png' %}" alt="SNC10228" width="862" height="526" />
+    <br /><p style="text-align: justify;margin-right: auto; margin-left: auto; display: block;margin-left: 90px;">
+    La durée des études est de deux années universitaires. - La première année s'étale sur 32 semaines suivies de quatre <br />
+        semaines
+    de stage  dans l'entreprise en Juillet ou Aout. - La deuxième année est de 36 semaines dont 8 semaines de stage<br /> et dispensé é raison
+    de 36 heures par semaine en moyenne.</p>
+
+
+
+
+</br></br></br></br></br></br>
+
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">Contact ESTC</br></br>
+Ecole Supérieure de Technologie , Route d'Eljadida,</br></br>
+KM 7, CASABLANCA, Maroc</br></br>
+Tél:212614000420/21/22</br></br>
+Fax: 212 522 252 245</br></br>
+Email: estcasa@est-uh2c.ac.ma</div>
+
+    </div>
+
+    <div class="footer-bottom">
+        Copyright © 2014 - TOUS DROITS RÉSERVÉS. / Webmaster: A.Douibi
+    </div>
+</div>
+
+
+    <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+
+</body>
+
+</html>

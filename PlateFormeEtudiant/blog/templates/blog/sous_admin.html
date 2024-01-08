@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static 'interface/js/fontawesome-all.min.js' %}"></script>
+</head>
+<style>
+
+    *{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    }
+    .sidebar{
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #1D9BAC;
+    transition: all .5s ease;
+    }
+    .sidebar header{
+    font-size: 38px;
+    color: white;
+    width: 1500px;
+    text-align: left;
+    line-height: 70px;
+    background: #4D9BAC;}
+    .sidebar ul a{
+    display: block;
+    height: 100%;
+    WIDTH: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom : 1px solid black;
+    transition: .4s;
+    }
+    ul li:hover a{
+    padding-left: 50px;}
+    .sidebar ul a  i{
+    margin-right: 16px;
+    }
+    #check{
+    display: none;
+    }
+    label #btn,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #042331;
+    border-radius: 3px;
+    }
+    label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color : white;
+    padding: 6px 12px;
+    transition: all .5s;
+    }
+    label #cancel{
+    z-index: 1111;
+    left: -195px;
+    top: 17px;
+    font-size: 30px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+    }
+    #check:checked ~ .sidebar{
+    left: 0;
+    }
+    #check:checked ~ label #btn{
+    left: 350px;
+    opacity: 0;
+    pointer-events: none;
+    }
+    #check:checked ~ label #cancel{
+    left: 195px;
+    }
+     #check:checked ~ section{
+     margin-left: 250px;
+     }
+     .f{
+        background: radial-gradient(, );
+     }
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  left: 350px;
+    transform: translate(-27%, -32%);
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: ;
+  color: ;
+}
+
+
+
+
+</style>
+
+<header>
+
+    <img src="{% static 'blog/images/s.png' %}" width="100%" HEIGHT="200px" >
+</header>
+
+<body>
+<input type="checkbox" id="check">
+<label for="check">
+</label>
+<div class="sidebar">
+
+    <header><i class="fas fa-users-cog"></i> Sous administrateur</header>
+    <ul>
+
+        <li><a href="{% url 'addact' %}"><i class="fas fa-theater-masks"></i>Les activités</a></li>
+
+        <li><a href="{% url 'signup' %}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
+    </ul>
+
+
+
+
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+
+</body>
+</html>

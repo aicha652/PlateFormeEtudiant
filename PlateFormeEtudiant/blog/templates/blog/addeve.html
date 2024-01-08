@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+{% load crispy_forms_tags %}
+
+<head>
+    {% load static %}
+
+    <title> {{ titre }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EST_CASABLANCA</title>
+
+    <style>
+
+form#paiement fieldset  {
+        width:500px;
+        margin-color:;
+
+        background:              ;
+        position: relative;
+        box-shadow:         1px 3px 5px 6px #ccc;
+ box-shadow:none !important;
+  background-image: url({% static 'blog/images/pp.jpg' %});
+
+       box-shadow: 0   0 , 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+        padding: 1px;
+
+       border-raduis: 1px;
+       transform: translate(5%,-1%);
+       margin-left:-30px;
+}
+
+
+
+form#paiement legend {
+  color: ;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 1px;
+  text-shadow: 0 1px 1px #c0d576;
+}
+
+
+form#paiement ol li {
+  background: ;
+  background: rgba(255,255,255,.3);
+  border-color: ;
+  border-color: rgba(255,255,255,.6);
+  border-style: solid;
+  border-width: 2px;
+  -moz-border-radius: 5px;
+
+  border-radius: 5px;
+  line-height: 30px;
+
+  padding: 5px 10px;
+  margin-bottom: 2px;
+ width:400px;
+}
+form#paiement ol ol li {
+  background: none;
+  border: none;
+  float: left;
+
+}
+form#paiement label {
+  float: center;
+  font-size: 20px;
+  width: 120px;
+
+}
+form#paiement fieldset fieldset label {
+
+  line-height: 2px;
+  width: auto;
+
+}
+
+
+
+form#paiement button {
+
+  border-radius: 10px;
+  color: ;
+  display: block;
+  font: 15px Georgia, "Times New Roman", Times, serif;
+  margin: auto;
+  padding: 10px 10px;
+
+  text-transform: uppercase;
+  margin-left:200px;
+
+}
+
+form#paiement {
+  background: ;
+
+
+  padding: 20px;
+  width: 100px;
+  margin-left:380px;
+}
+
+    </style>
+</head>
+
+<body>
+
+
+<div class="f"></div>
+
+          <section>
+
+                    <form action="{% url 'addevent' %}" method="POST" enctype="multipart/form-data" id=paiement>
+                        {% csrf_token %}
+
+                        <div class="modal-body mx-3">
+                            <!-- Default form register -->
+                            <form class="text-center border border-light p-3">
+                                 <fieldset>
+
+
+      <ol>
+                                     <li>
+                                <label for=lieu>Lieu</label>
+                                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="titre"
+                                        required>
+                                    </li>
+
+
+
+
+                                <li>
+                                     <label for=description>Description</label>
+                                <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                       style="height:220px; width:300px;" name="description " required>
+          </li>
+
+                            <div class="md-form mb-4">
+                                <select class="browser-default custom-select mb-4" name='club'>
+                                    <option value="" disabled>Choose option</option>
+                                    {% for club in clubs %}
+                                    <option value="{{club.club}}">{{club.club}}</option>
+                                    {% endfor%}
+                                </select>
+
+                             <li>
+                                Selectioner Une Image
+                            <div class="md-form mb-5">
+                            <i class="fas fa-images prefix grey-text"></i>
+                            <input type="file" name="myfile" required>
+                            </div></li>
+
+</ol>
+                                 </fieldset>                       <!-- Default form register -->
+                           <button type=submit>Ajouter</button>
+
+
+
+                            </form>
+
+
+                        </div>
+                    </form>
+          </section>
+
+
+
+
+
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mdb.js' %}"></script>
+</body>
+
+</html>
+

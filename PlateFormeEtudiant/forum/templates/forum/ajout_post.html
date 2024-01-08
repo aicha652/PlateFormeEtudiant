@@ -1,0 +1,89 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-8" style="margin-top: 50px;">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-top: 5px;float: right; box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08); font-size: 16px;">
+				Posez vos Questions
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title" id="exampleModalLongTitle">ajouter votre sujet</h3>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<h4 style="margin-bottom: 10px; margin-top:0;">ajouter votre sujet</h4>
+								<form action="/ajout_post/" method="POST">
+
+									{% csrf_token %}
+
+                                    <div class="form-group" style="margin-bottom: 10px;">
+										<textarea id="text" name="title" class="form-control"></textarea>
+									</div>
+                                    <div class="form-group" style="margin-bottom: 10px;">
+										<textarea id="text" name="body" class="form-control"></textarea>
+									</div>
+									<div class="form-group" style="margin-bottom: 10px;">
+										<textarea id="summernote" name="editordata" class="form-control"></textarea>
+									</div>
+									<h4 style="margin-bottom: 10px;">Catégorie: </h2>
+									<div class="form-group" style="margin-bottom: 20px;">
+										<select class="custom-select" name="category">
+											<option value="informatique">informatique</option>
+											<option value="Electrique">Electrique</option>
+											<option value="thecnique">thecnique</option>
+											<option value="mécanique">mécanique</option>
+											<option value="Economique">Economique</option>
+											<option value="autres">autres</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-md btn-danger" style="box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08); font-size: 16px;">poser votre sujet de discussion</button>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container" style="margin-top: 40px;">
+					<span class="badge badge-pill badge-danger" style="margin-bottom: 20px; padding: .875em; color: #5e72e4; border-color: #5e72e4; background-color: #ccc; text-align: center; border-radius: 0; font-size:18px; font-weight: 700;">les sujets: </span><br>
+					<div class="row">
+						{% for post in posts %}
+							<div class="col-md-4" style="margin-right: 40px;">
+								<div class="card" style="width: 30rem; height: 25rem; display: inline-block;">
+									<div class="card-body">
+										<h3 class="card-title" style="text-align: center;">{{ post.title}}</h3>
+										<p class="card-text" style="text-align: center;">{{ post.body| truncatechars:160 }}</p>
+										<center><a href="/post/{{post.id}}" class="btn btn-primary">lire la suite</a></center>
+									</div>
+								</div>
+								<br><br>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+			<div class="col-md-2">
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#summernote').summernote({
+			placeholder: "commencez votre question avec 'quoi', 'comment', 'pourquoi', etc.",
+			tabsize: 2,
+			height: 100
+		});
+	</script>
+{% endblock %}

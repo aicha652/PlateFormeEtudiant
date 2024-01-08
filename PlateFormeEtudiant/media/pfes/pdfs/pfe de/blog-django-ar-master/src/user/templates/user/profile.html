@@ -1,0 +1,478 @@
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+    <style>
+  *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+         }
+body{
+         background-position: center;
+         font-family: sans-serif;
+          background: radial-gradient(#fff, #dac4cd);}
+.menu-bar{
+         background:#000080;
+         text-align: center;
+         }
+.menu-bar ul{
+         display: inline-flex;
+         list-style: none;
+         color: #fff;
+       }
+
+.menu-bar ul li{
+       width: 170px;
+       margin: 10px;
+       padding: 15px;
+       }
+.menu-bar ul li a{
+       text-decoration: none;
+       color: #fff;
+       }
+.active, .menu-bar ul li:hover{
+       background: #1369ce;
+       border-radius:3px;
+}
+.sub-menu-l{
+       display: none;
+       }
+.menu-bar ul li:hover .sub-menu-l{
+       display: block;
+       position: absolute;
+       background: #000080;
+       margin-top: 15px;
+       margin-left:-15px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul{
+      display:block;
+      margin: 10px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul li{
+      width: 160px;
+      padding: 10px;
+      border-bottom: 1px dotted #fff;
+      background: transparent;
+      border-radius: 0;
+      text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-l ul li:last-child{
+border-bottom:none;}
+
+
+
+
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:140px;
+}
+
+.container {
+  position: absolute;
+  top:35%;
+  left:30%;
+  transform: translate(-1%, -32%);
+}
+
+.card .card-heading {
+    padding: 0 20px;
+
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width:200px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.modifier {
+  position: absolute;
+  top:35%;
+  left:30%;
+  transform: translate(
+ 190%, 320%);
+}
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width:400%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.hovercard .cardheader {
+    background: url("https://www.digischool.fr/images/article/decouvrez-le-sujet-de-litterature-du-bac-l-2015-tombe-a-washington-lg-28731.jpg");
+    background-size: cover;
+    height: 200px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+
+
+    </style>
+<!DOCTYPE html>
+
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title> Espace Etudiant | {{title}}</title>
+    {% else %}
+    <title>Espace Etudiant</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+ </head>
+ <header>
+     <div class="menu-bar">
+<ul>
+    <li ><a href="{% url 'index' %}"><i class="fas fa-home"></i>Acceuil</a></li>
+    <li ><a href="{% url 'presentation' %}"><i class="fas fa-university"></i>Présentation</a>
+
+
+    </li>
+    <li ><a href="{% url 'home' %}"><i class="fas fa-comments"></i>Publications</a></li>
+
+
+
+</ul>
+
+                {% if user.is_authenticated %}
+                <ul >
+                    <li class="active"><a  href="{% url 'profile' %}"><i class="fas fa-users"></i>Profil</a></li>
+                    <li ><a  href="{% url 'new_post' %}"><i class="fas fa-comments"></i>Forum</a></li>
+                    <li ><a href="{% url 'profile_update' %}"><i class="fas fa-user-circle"></i>Mon compte</a></li>
+                    <li ><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
+                </ul>
+                {% else %}
+                <ul>
+                     <li ><a href="#"><i class="fas fa-user-graduate"></i>L'auréats</a></li>
+                    <li ><a href="{% url 'login' %}"><i class="fas fa-lock"></i>Connexion</a></li>
+                    <li ><a  href="{% url 'register' %}"><i class="fas fa-user"></i>S'inscrire</a></li>
+                </ul>
+                {% endif %}
+
+
+            </div>
+
+        <!--End Navbar-->
+
+    {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 col-sm-8">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                     <img class="img-fluid rounded-circle border m-2" style="width: 120px; height:120px;"
+                src="{{user.profile.image.url}}" alt="{{user.username}}">
+ <div class="info">
+                    <div class="title">
+                         <h2 class="mb-4">{{user.username}}</h2>
+                    </div>
+
+
+                <div class="info">
+                    <div class="title">
+                        <a target="_blank" >{{user.first_name}} {{user.last_name}}</a>
+                    </div>
+
+                    <p class="font-weight-bold">Email: <span class="font-weight-normal">{{user.email}}</span></p>
+                </div>
+                     </div>
+
+                <div class="modifier">
+
+                <div class="mt-3">
+                <a class="btn btn-secondary bg-secondary" href="{% url 'profile_update' %}"><i
+                        class="fas fa-pen fa-xs"></i></a>
+            </div>
+                </div>
+
+            </div>
+
+        </div>
+
+	</div>
+</div>
+
+
+<!--notre profile-->
+<!--div class="border p-4 mb-5">
+    <div class="row">
+
+        <div class="col-md-3 text-center">
+            <img class="img-fluid rounded-circle border m-2" style="width: 120px; height:120px;"
+                src="{{user.profile.image.url}}" alt="{{user.username}}">
+            <div class="mt-3">
+                <a class="btn btn-secondary bg-secondary" href="{% url 'profile_update' %}"><i
+                        class="fas fa-pen fa-xs"></i>modifier</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h2 class="mb-4">{{user.username}}</h2>
+            <p class="font-weight-bold">Prénom: <span class="font-weight-normal">{{user.first_name}}
+                    {{user.last_name}}</span></p>
+            <p class="font-weight-bold">Email: <span class="font-weight-normal">{{user.email}}</span></p>
+        </div>
+    </div>
+</div>-->
+<!--<div class="row mb-2">
+    <div class="col-md">
+        <h3 class="border-bottom justify-content-center pb-2 mb-2">Number of posts</h3>
+        <h4 class="bg-secondary text-center p-4 text-light">
+            {{posts.count}}
+        </h4>
+
+        <h3 class="border-bottom   mb-2 pb-2 mt-2">My posts</h3>
+        {% for post in post_list %}
+        <ul class="pr-1">
+            <a class="text-dark" href="{% url 'detail' post.id %}">{{post.title}}</a>
+        </ul>
+        {% empty %}
+        <h4 class="text-center  mb-5">No posts</h4>
+        {% endfor %}
+
+        {% include 'blog/pagination.html' with page=post_list %}
+    </div>
+</div>-->
+
+
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,235 @@
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+    <style>
+     *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+         }
+body{
+         background-position: center;
+         font-family: sans-serif;}
+.menu-bar{
+         background:#000080;
+         text-align: center;
+         }
+.menu-bar ul{
+         display: inline-flex;
+         list-style: none;
+         color: #fff;
+       }
+
+.menu-bar ul li{
+       width: 170px;
+       margin: 10px;
+       padding: 15px;
+       }
+.menu-bar ul li a{
+       text-decoration: none;
+       color: #fff;
+       }
+.active, .menu-bar ul li:hover{
+       background: #1369ce;
+       border-radius:3px;
+}
+.sub-menu-l{
+       display: none;
+       }
+.menu-bar ul li:hover .sub-menu-l{
+       display: block;
+       position: absolute;
+       background: #000080;
+       margin-top: 15px;
+       margin-left:-15px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul{
+      display:block;
+      margin: 10px;
+       }
+.menu-bar ul li:hover .sub-menu-l ul li{
+      width: 160px;
+      padding: 10px;
+      border-bottom: 1px dotted #fff;
+      background: transparent;
+      border-radius: 0;
+      text-align: left;
+}
+.menu-bar ul li:hover .sub-menu-l ul li:last-child{
+border-bottom:none;}
+
+
+
+
+
+        body,
+        html{
+        margin:0 ;
+        padding:0;
+        height:100%;
+        background-image: ;
+        background-color:#f7f5ec!important;
+        }
+        .user_card {
+        width:450px;
+        margin-top: auto;
+        margin-bottom:auto;
+        background:#1D9BAC  ;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction:column;
+        padding: 10px;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       .webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       .moz-box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       border-radius: 5px;
+       }
+
+       .from_container{
+       margin-top: 50px;
+       }
+       #form-title{
+       color:#fff;}
+       .login_btn{
+       width:100%;
+       background:#33ccff !important;
+       color: white !important;
+       }
+       .login_btn:focus{
+       box-shadow:none !important;
+       outline: 0px !important;
+       }
+       .login_container{
+       padding: 0 2rem;
+       }
+       .input-group-text{
+       background:#f7ba5b !important;
+       color: white !important;
+       border: 0 !important;
+       border-radius: 0.25rem 0 0 0.25rem !important;
+       }
+       .input_user,
+       .input_pass: focus{
+       box-shadow: none !important;
+       outline: 0px !important;
+       }
+body {
+  color: #435757;
+  background: radial-gradient(#fff, #dac4cd);
+
+}
+    </style>
+<!DOCTYPE html>
+
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title> Espace Etudiant | {{title}}</title>
+    {% else %}
+    <title>Espace Etudiant</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+ </head>
+ <header>
+     <div class="menu-bar">
+<ul>
+    <li ><a href="{% url 'index' %}"><i class="fas fa-home"></i>Acceuil</a></li>
+    <li ><a href="{% url 'presentation' %}"><i class="fas fa-university"></i>Présentation</a>
+
+
+    </li>
+    <li ><i class="fas fa-comments"></i><a href="{% url 'home' %}">Publications</a></li>
+
+
+
+</ul>
+
+                {% if user.is_authenticated %}
+                <ul >
+                    <li ><i class="fas fa-users"></i><a  href="{% url 'profile' %}">Profil</a></li>
+                    <li ><i class="fas fa-comments"></i><a  href="{% url 'new_post' %}">Forum</a></li>
+                    <li class="active"><i class="fas fa-user-circle"></i><a href="{% url 'profile_update' %}">Mon compte</a></li>
+                    <li ><i class="fas fa-sign-out-alt"></i><a href="{% url 'logout' %}">Déconnexion</a></li>
+                </ul>
+                {% else %}
+                <ul>
+                     <li ><a href="#"><i class="fas fa-user-graduate"></i>Lauréats</a></li>
+                    <li ><a href="{% url 'login' %}"><i class="fas fa-lock"></i>Connexion</a></li>
+                    <li ><a  href="{% url 'register' %}"><i class="fas fa-user"></i>S'inscrire</a></li>
+                </ul>
+                {% endif %}
+
+
+            </div>
+
+        <!--End Navbar-->
+    </header>
+<body>
+  <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                     <h3 id="form-title">Modifier le profil</h3>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+<div class="border p-4 mb-5">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+           <div class="input-group justify-content-center  mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i></span>
+                        </div>
+                           {{user_form.first_name}}
+                    </div>
+         <div class="input-group justify-content-center  mb-4">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i></span>
+                        </div>
+                           {{user_form.last_name}}
+                    </div>
+         <div class="input-group justify-content-center  mb-2">
+                        <div class="input-group-append">
+                               <span class="input-group-text">
+                                <i class="fas fa-envelope-square"></i></span>
+                        </div>
+                        {{user_form.email}}
+                        </div>
+        <!-- {{profile_form|crispy}} -->
+
+        <div>
+           <!-- <span class="mb-2 " style="display: block"> picture *</span>
+            actuel picture <a href="{{user.profile.image.url}}">{{user.profile.image}}</a>-->
+            <br>
+            <label for="image" class="btn btn-outline-secondary  mt-2">choose picture</label>
+                <input class="btn login_btn" type="file" name="image" id="image" accept="image/*" style="display: none">
+
+        </div>
+      <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn login_btn" type="submit"
+                               value="modifier">
+
+             </div>
+    </form>
+
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+{% endblock content %}

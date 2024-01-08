@@ -1,0 +1,84 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-8" style="margin-top: 50px;">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-md btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="margin-top: 5px;float: right; box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08); font-size: 16px;">
+				nouveau sujet de discussion
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title" id="exampleModalLongTitle">nouveau sujet de discussion</h3>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<h4 style="margin-bottom: 10px; margin-top:0;">C'est quoi votre question?</h4>
+								<form action="/discussion/" method="POST">
+
+									{% csrf_token %}
+
+
+									<div class="form-group" style="margin-bottom: 10px;">
+										<textarea id="summernote" name="editordata" class="form-control"></textarea>
+									</div>
+									<h4 style="margin-bottom: 10px;">Catégorie: </h2>
+									<div class="form-group" style="margin-bottom: 20px;">
+										<select class="custom-select" name="category">
+											<option value="informatique">informatique</option>
+											<option value="Electrique">Electrique</option>
+											<option value="thecnique">thecnique</option>
+											<option value="mécanique">mécanique</option>
+											<option value="Economique">Economique</option>
+											<option value="autres">autres</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-md btn-danger" style="box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08); font-size: 16px;">poser votre sujet de discussion</button>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<span class="badge badge-pill badge-danger" style="margin-bottom: 20px; padding: .875em; color: #f80031; background-color: rgba(251,175,190,.5); text-align: center; border-radius: 0; font-size:18px;">les Sujets:</span><br>
+
+				{% for quest in question %}
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">{{quest.question | safe}}</h4>
+							<h6 class="card-text">Catégorie {{quest.category}}</h6>
+							<p class="card-text" style="font-size: 12px; color: grey;">posé par : {{ quest.author }} | {{ quest.datetime }}</p>
+
+							<a href="/question/{{quest.id}}/" class="btn" style="color: #fff;				border-color: #222;	background-color: #222; box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08),0 0 0 0 rgba(255,255,255,.5);
+							font-size: 12px;">Répondre</a>
+						</div>
+					</div>
+
+					<hr>
+				{% endfor %}
+			</div>
+
+			<div class="col-md-2">
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#summernote').summernote({
+			placeholder: "commencez votre question avec 'quoi', 'comment', 'pourquoi', etc.",
+			tabsize: 2,
+			height: 100
+		});
+	</script>
+{% endblock %}

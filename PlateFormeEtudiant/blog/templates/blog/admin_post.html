@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  left: 350px;
+    transform: translate(-27%, -32%);
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+    a {
+        font-family: 'Quicksand', sans-serif;
+    }
+    body,p,a,h2{
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #0080FF;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #0080C0;
+}
+
+.button:hover {background-color: #0080C0}
+
+.button:active {
+  background-color: #FFFFFF;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+ padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #000000;
+  background-color:#F6CEF5;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #0080C0;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+
+
+<body>
+
+    <center>    <table  class="table table-striped table-responsive-md btn-table"  >
+
+            <thead>
+                <tr BGCOLOR="#A6D2FF" WIDTH="290px" HEIGHT="0px" >
+                    <th><B>titre</B></th>
+
+                    <th><B>content</B></th>
+
+                    <th><B>post_date</B></th>
+
+                    <th><B>auther</B></th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+{% for s in base %}
+                <tr    BGCOLOR=" #e9ecef">
+                    <td >{{ s.titre }} </td>
+                    <td>{{ s.content }} </td>
+                       <td>{{s.post_date }}</td>
+                    <td>{{s.auther }}</td>
+                    <td> </td>
+
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table></center>
+
+        <br>
+        <br>
+
+  <center>   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" ><a href="{% url 'administrateur' %}" class="btn btn-primary">Retour</a></button></CENTER>
+
+<div class="f"></div>
+ <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+
+</body>
+</html>

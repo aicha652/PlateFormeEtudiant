@@ -1,0 +1,63 @@
+{% extends "layouts/basee.html" %}
+
+{% block main_page_title %}
+    Dashboard
+{% endblock main_page_title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% load static %}
+
+{% block main_page_content %}
+<br><br><br><br><br><br>
+                        <!--[social-media section] start-->
+
+   <div class="row">
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-puzzle-piece f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'ssadminsactivites' %}">
+                                            <h3>{{ activites }}</h3>
+                                            <span class="name">Total des activites</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="card">
+                        <div class="card-block border-bottom">
+                                    <div class="row align-items-center justify-content-center">
+                                        <span class="bg-icon">
+                                            <i class="fas fa-file-alt f-60"></i>
+                                        </span>
+                                        <a class="col text-right" href="{% url 'table_inscrip_activi' %}">
+                                            <h3>{{ inscrits }}</h3>
+                                            <span class="name">Total des inscriptions</span>
+                                        </a>
+                                    </div>
+                                </div>
+        </div>
+            </div>
+
+
+
+
+</div>
+
+{% endblock main_page_content %}
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
